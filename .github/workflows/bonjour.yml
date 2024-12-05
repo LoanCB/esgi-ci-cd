@@ -8,5 +8,9 @@ jobs:
       IMAGE_NAME: "node-linter"
     steps:
       - uses: actions/checkout@v4
+      - uses: hadolint/hadolint-action@v3.1.0
+        with: 
+          dockerfile: ./Dockerfile
+      - run: hadolint ./Dockerfile
       - run: docker image build --tag="${IMAGE_NAME}" ./
       - run: docker container run "${IMAGE_NAME}" npm run lint
