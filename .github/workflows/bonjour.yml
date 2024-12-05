@@ -6,8 +6,5 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - run: npm clean-install
-      - run: npm run lint
-    container:
-      image: ghcr.io/dduportal/esgi-gitpod
-      options: --user=root
+      - run: docker image build --tag="nodeLinter" ./
+      - run: docker container run nodeLinter npm run build
