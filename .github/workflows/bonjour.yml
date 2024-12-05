@@ -7,4 +7,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: docker image build --tag="node-linter" ./
-      - run: docker container run node-linter npm run lint
+      - run: docker container run --volume="$(pwd)":"$(pwd)" --workdir="$(pwd)" node-linter npm run lint
