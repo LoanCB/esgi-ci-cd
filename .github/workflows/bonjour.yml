@@ -5,10 +5,9 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 23
-      - run: npm ci
+      - uses: actions/checkout@v4
+      - run: npm clean-install
       - run: npm run lint
+    container:
+      image: ghcr.io/dduportal/esgi-gitpod
+      options: --user=root
