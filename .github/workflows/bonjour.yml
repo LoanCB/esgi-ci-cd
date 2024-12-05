@@ -6,5 +6,5 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - run: docker image build --tag="nodeLinter" ./
-      - run: docker container run nodeLinter npm run build
+      - run: docker image build --tag="node-linter" ./
+      - run: docker container run node-linter npm run build
